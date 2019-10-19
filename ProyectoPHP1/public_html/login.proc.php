@@ -9,7 +9,7 @@ $hash = md5($pass);
 if (isset($_REQUEST["username"])) {
     $q = mysqli_query($connexion, "SELECT * FROM users WHERE user = '$usuario' AND password = '$hash'");
     $row_cnt = mysqli_num_rows($q);
-
+    
 //Comprobar que el usuario está registrado
     if (!empty($q) && $row_cnt == 1) {
         session_start();

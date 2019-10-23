@@ -17,20 +17,23 @@ if (!$connexion) {
       die("Conexión fallida: " . mysqli_connect_error());
 }
 
-//Comprobar si el registro esta en la base de datos
-$sql_exist="Select * from gallery where path='imagenes/$foto'";
-$resultado=mysqli_query($connexion, $sql_exist);
-$row_result = mysqli_num_rows($resultado);
-
-//Medidas de la imagen
-list($width, $height) = getimagesize("$destino");
-
 //Coger el id del usuario
 $nombre_user= $_SESSION['nombre'];
 $sql_user = mysqli_query($connexion, "SELECT id FROM users WHERE user='$nombre_user'");
 while ($res = mysqli_fetch_array($sql_user)) {
     $id_user = $res["id"];
 }
+
+
+//Comprobar si el registro esta en la base de datos
+$sql_exist="Select * from gallery where path='imagenes/$foto' AND id_user='$id_user'";
+$resultado=mysqli_query($connexion, $sql_exist);
+$row_result = mysqli_num_rows($resultado);
+
+//Medidas de la imagen
+list($width, $height) = getimagesize("$destino");
+
+
 
 //Insertar la información en la base de datos filtrando extension, tamaño y si existe en la base de datos
 if ($t == 'png' || $t == 'jpg' || $t == 'gif' || $t == 'jpeg') {

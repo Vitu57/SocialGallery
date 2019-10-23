@@ -11,15 +11,17 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    
+    <script type="text/javascript" src="codigo.js">
+    </script>
     <header>
         <h1>Social Galery</h1>
         <?php
         include 'header.php';
         ?>
     </header><br>
+    <p id="alerta" class="alerta" style="text-align: center" ></p>
         <!Formulario-->
-            <form action="galeria.php" method="post" enctype="multipart/form-data">
+            <form id='login' action="galeria.php" method="post" enctype="multipart/form-data" onsubmit = "return ValidacionRegistro()">
                 <table>
                     <tr>
                         <th class="tabla1"><input type="file" name="foto" id="foto"></th>

@@ -2,15 +2,18 @@
 //Declaramos variables y extraemos extension del archivo
 include 'conexion.php';
 include 'header.php';
-$ruta = $_FILES["foto"]["name"];
 $foto = $_FILES["foto"]["name"];
+$fototmp = $_FILES["foto"]["tmp_name"];
 $extension = explode(".", $foto);
 $t = $extension[1];
 $titol = $_REQUEST["titol"];
 $destino = "imagenes/".$foto;
-copy($ruta,$destino);
+copy($foto,$destino);
 $id_al = rand ( 1, 99);
 $data = date("m.d.y");
+
+//Mover la imagen
+move_uploaded_file($fototmp, $destino);
 
 //Verificacion de la conexión al servidor
 if (!$connexion) {

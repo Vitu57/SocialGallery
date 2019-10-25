@@ -11,10 +11,12 @@ function ValidacionLogin(){
 	}else if(user == ''){
 		document.getElementById('alerta').innerHTML = 'El campo usuario es obligatiorio';
                 document.getElementById('username').style.border = '2px solid red';
+                document.getElementById('password').style.border = '1px solid #ccc';
 		document.getElementById('alerta').style.display = 'block';
 		return false;
 	}else if(pass == ''){
 		document.getElementById('alerta').innerHTML = 'El campo contraseña es obligatiorio';
+                document.getElementById('username').style.border = '1px solid #ccc';
                 document.getElementById('password').style.border = '2px solid red';
 		document.getElementById('alerta').style.display = 'block';
 		return false;
@@ -36,12 +38,14 @@ function ValidacionRegistro(){
 		return false;
 	}else if(foto == ''){
 		document.getElementById('alerta').innerHTML = 'Selecciona la ruta de la imagen';
+                document.getElementById('titol').style.border = '1px solid #ccc';
                 document.getElementById('foto').style.border = '2px solid red';
 		document.getElementById('alerta').style.display = 'block';
 		return false;
 	}else if(titol == ''){
 		document.getElementById('alerta').innerHTML = 'Selecciona un título';
                 document.getElementById('titol').style.border = '2px solid red';
+                document.getElementById('foto').style.border = '0px solid #ccc';
 		document.getElementById('alerta').style.display = 'block';
 		return false;
 	}else{

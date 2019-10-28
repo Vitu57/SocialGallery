@@ -16,7 +16,8 @@ if (isset($_REQUEST["username"])) {
         $_SESSION['nombre'] = $usuario;
         header("Location: index.php");
     } else {
-        header("Location: home.php");
+        echo"<script type='text/javascript'>alert('Usuario o contraseña incorrectos')</script>";
+        header('Refresh:0; url = home.php?us='.$usuario); 
     }
     $close = mysqli_close($connexion);
 }else{

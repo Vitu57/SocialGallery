@@ -23,7 +23,12 @@
                     </tr>
                     <tr>
                         <th><label for='username' >Nombre de Usuario:</label></th>
-                        <th><input type='text' placeholder="Introduce el usuario" name='username' id='username'  maxlength="50"/></th>
+                        <th><input type='text' placeholder="Introduce el usuario" name='username' id='username'  value="<?php 
+                                if (isset($_GET['us']) && !empty($_GET['us'])) {
+                                    $user=$_GET['us'];
+                                    echo "$user";
+                                }
+                        ?>" maxlength="50"/></th>
                     </tr>
                     <tr>
                         <th><label for='password' >Contraseña:</label></th>
